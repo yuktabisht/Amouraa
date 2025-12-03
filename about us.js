@@ -1,38 +1,5 @@
 // JavaScript Document
 
-//loader
-
-const loader = document.getElementById('loader');
-  const video = document.querySelector('#loader video');
-
-  let videoEnded = false;
-  let pageLoaded = false;
-
-  // When video finishes
-  video.addEventListener('ended', function() {
-    videoEnded = true;
-    checkDone();
-  });
-
-  // When page fully loads
-  window.addEventListener('load', function() {
-    pageLoaded = true;
-    checkDone();
-  });
-
-  // If video fails to autoplay, force it to play
-  video.play().catch(() => {
-    // Some browsers block autoplay, so force it muted
-    video.muted = true;
-    video.play();
-  });
-
-  // When both are done, hide loader
-  function checkDone() {
-    if (videoEnded && pageLoaded) {
-      loader.classList.add('fade-out');
-    }
-  }
 
 //moving text
 const scrollTexts = document.querySelectorAll(".scroll-text");
@@ -243,4 +210,5 @@ text.addEventListener('mouseleave', () => {
       upBtn.style.display = "none";
     }
   });
+
 
